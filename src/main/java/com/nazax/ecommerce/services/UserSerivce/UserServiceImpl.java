@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Override
     public UserResponseDTO salvar(UserRequestDTO dto) {
         var cursos = cursoRepository.findByIdIn(dto.getIdsCursos());
         var user = userMapper.toEntity(dto, cursos);
@@ -31,11 +30,20 @@ public class UserServiceImpl implements UserService {
         return userMapper.toDTO(salvo);
     }
 
-    @Override
     public List<UserResponseDTO> listar() {
         return userRepository.findAll().stream()
                 .map(userMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserResponseDTO create(UserRequestDTO dto) {
+        return null;
+    }
+
+    @Override
+    public List<UserResponseDTO> findAll() {
+        return List.of();
     }
 }
 

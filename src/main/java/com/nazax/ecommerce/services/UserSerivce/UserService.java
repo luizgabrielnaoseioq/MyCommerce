@@ -9,4 +9,3 @@ public interface UserService {
     UserResponseDTO create(UserRequestDTO dto);
     List<UserResponseDTO> findAll();
 }
-
