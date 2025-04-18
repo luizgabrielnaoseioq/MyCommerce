@@ -6,7 +6,7 @@ import com.nazax.ecommerce.dtos.UserDTO.UserResponseDTO;
 import java.util.List;
 
 public interface UserService {
-    UserResponseDTO salvar(UserRequestDTO dto);
-    List<UserResponseDTO> listar();
+    UserResponseDTO create(UserRequestDTO dto);
+    List<UserResponseDTO> findAll();
 }
 
