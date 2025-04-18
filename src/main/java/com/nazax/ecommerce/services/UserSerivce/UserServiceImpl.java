@@ -32,11 +32,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponseDTO salvar(UserRequestDTO dto) {
-        return null;
-    }
-
-    @Override
     public List<UserResponseDTO> listar() {
         return userRepository.findAll().stream()
                 .map(userMapper::toDTO)
