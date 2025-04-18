@@ -1,8 +1,8 @@
-package com.nazax.ecommerce.services.UserSerivce;
+package com.nazax.ecommerce.services.user.mapper;
 
-import com.nazax.ecommerce.dtos.UserDTO.UserRequestDTO;
-import com.nazax.ecommerce.dtos.UserDTO.UserResponseDTO;
-import com.nazax.ecommerce.models.Curso;
+import com.nazax.ecommerce.exceptions.user.UserRequestDTO;
+import com.nazax.ecommerce.exceptions.user.UserResponseDTO;
+import com.nazax.ecommerce.models.Product;
 import com.nazax.ecommerce.models.User;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Component
 public class UserMapper {
 
-    public User toEntity(UserRequestDTO dto, Set<Curso> cursos) {
+    public User toEntity(UserRequestDTO dto, Set<Product> cursos) {
         User user = new User();
         user.setUsername(dto.getNome());
         user.setEmail(dto.getEmail());
@@ -32,7 +32,7 @@ public class UserMapper {
         dto.setRole(user.getRole());
 
         Set<String> nomesCursos = user.getCursos().stream()
-                .map(Curso::getNome)
+                .map(Product::getNome)
                 .collect(Collectors.toSet());
 
         dto.setNomesCursos(nomesCursos);

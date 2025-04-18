@@ -1,6 +1,4 @@
-package com.nazax.ecommerce.dtos.UserDTO;
-
-import com.nazax.ecommerce.models.Curso;
+package com.nazax.ecommerce.exceptions.user;
 
 import javax.management.relation.Role;
 import java.util.Set;

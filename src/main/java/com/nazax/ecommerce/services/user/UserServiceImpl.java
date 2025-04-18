@@ -1,10 +1,11 @@
-package com.nazax.ecommerce.services.UserSerivce;
+package com.nazax.ecommerce.services.user;
 
 // UserServiceImpl.java
-import com.nazax.ecommerce.dtos.UserDTO.UserRequestDTO;
-import com.nazax.ecommerce.dtos.UserDTO.UserResponseDTO;
-import com.nazax.ecommerce.repositorys.CursoRepository;
-import com.nazax.ecommerce.repositorys.UserRepository;
+import com.nazax.ecommerce.exceptions.user.UserRequestDTO;
+import com.nazax.ecommerce.exceptions.user.UserResponseDTO;
+import com.nazax.ecommerce.repositories.ProductRepository;
+import com.nazax.ecommerce.repositories.UserRepository;
+import com.nazax.ecommerce.services.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private CursoRepository cursoRepository;
+    private ProductRepository cursoRepository;
 
     @Autowired
     private UserMapper userMapper;
