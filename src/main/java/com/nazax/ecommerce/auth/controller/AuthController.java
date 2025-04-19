@@ -1,7 +1,8 @@
 package com.nazax.ecommerce.auth.controller;
 
+import com.nazax.ecommerce.auth.dto.LoginRequestDTO;
+import com.nazax.ecommerce.auth.dto.LoginResponseDTO;
 import com.nazax.ecommerce.auth.jwt.JwtUtil;
-import com.nazax.ecommerce.auth.dto.AuthRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

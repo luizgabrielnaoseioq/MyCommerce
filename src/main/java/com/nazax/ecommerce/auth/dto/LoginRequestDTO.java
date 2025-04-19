@@ -1,7 +1,9 @@
 package com.nazax.ecommerce.auth.dto;
 
 public class LoginRequestDTO {
+
     private String email;
+
     private String senha;
 
     public String getEmail() {
