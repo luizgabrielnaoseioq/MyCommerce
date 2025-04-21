@@ -1,7 +1,7 @@
 package com.nazax.ecommerce.controllers.user;
 
-import com.nazax.ecommerce.exceptions.user.UserRequestDTO;
-import com.nazax.ecommerce.exceptions.user.UserResponseDTO;
+import com.nazax.ecommerce.dtos.user.UserRequestDTO;
+import com.nazax.ecommerce.dtos.user.UserResponseDTO;
 import com.nazax.ecommerce.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

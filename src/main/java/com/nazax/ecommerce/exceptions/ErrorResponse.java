@@ -1,4 +1,4 @@
-package com.nazax.ecommerce.dtos;
+package com.nazax.ecommerce.exceptions;
 
 import java.time.LocalDateTime;
 

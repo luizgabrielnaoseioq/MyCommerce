@@ -19,7 +19,7 @@ public class User {
     private Long id;
 
     @Getter
-    private String username;
+    private String name;
 
     private String email;
 
@@ -38,21 +38,21 @@ public class User {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(role, user.role);
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(role, user.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, email, password, role);
+        return Objects.hash(id, name, email, password, role);
     }
 
     public User() {
 
     }
 
-    public User(Long id, String username, String email, String password, Role role) {
+    public User(Long id, String name, String email, String password, Role role) {
         this.id = id;
-        this.username = username;
+        this.name = name;
         this.email = email;
         this.password = password;
         this.role = role;

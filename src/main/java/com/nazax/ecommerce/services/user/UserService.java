@@ -1,7 +1,7 @@
 package com.nazax.ecommerce.services.user;
 
-import com.nazax.ecommerce.exceptions.user.UserRequestDTO;
-import com.nazax.ecommerce.exceptions.user.UserResponseDTO;
+import com.nazax.ecommerce.dtos.user.UserRequestDTO;
+import com.nazax.ecommerce.dtos.user.UserResponseDTO;
 
 import java.util.List;
 

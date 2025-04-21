@@ -1,6 +1,6 @@
 package com.nazax.ecommerce.configs;
 
-import com.nazax.ecommerce.auth.JwtAuthFilter;
+import com.nazax.ecommerce.auth.jwt.JwtFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

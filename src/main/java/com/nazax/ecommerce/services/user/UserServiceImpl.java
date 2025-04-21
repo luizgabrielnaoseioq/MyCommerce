@@ -1,8 +1,7 @@
 package com.nazax.ecommerce.services.user;
 
-// UserServiceImpl.java
-import com.nazax.ecommerce.exceptions.user.UserRequestDTO;
-import com.nazax.ecommerce.exceptions.user.UserResponseDTO;
+import com.nazax.ecommerce.dtos.user.UserRequestDTO;
+import com.nazax.ecommerce.dtos.user.UserResponseDTO;
 import com.nazax.ecommerce.repositories.ProductRepository;
 import com.nazax.ecommerce.repositories.UserRepository;
 import com.nazax.ecommerce.services.user.mapper.UserMapper;
@@ -25,8 +24,8 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     public UserResponseDTO salvar(UserRequestDTO dto) {
-        var cursos = cursoRepository.findByIdIn(dto.getIdsCursos());
-        var user = userMapper.toEntity(dto, cursos);
+        var products = cursoRepository.findByIdIn(dto.getIdsProducts());
+        var user = userMapper.toEntity(dto, products);
         var salvo = userRepository.save(user);
         return userMapper.toDTO(salvo);
     }

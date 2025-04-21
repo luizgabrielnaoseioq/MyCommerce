@@ -1,10 +1,10 @@
-package com.nazax.ecommerce.exceptions.user;
+package com.nazax.ecommerce.dtos.user;
 
 import javax.management.relation.Role;
 import java.util.Set;
 
 public class UserRequestDTO {
-    private String nome;
+    private String name;
     private String email;
     private String password;
     private Role role;
@@ -15,19 +15,19 @@ public class UserRequestDTO {
     }
 
     public UserRequestDTO(String nome, String email, String password, Role role, Set<Long> idsCursos) {
-        this.nome = nome;
+        this.name = nome;
         this.email = email;
         this.password = password;
         this.role = role;
         this.idsCursos = idsCursos;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -54,7 +54,7 @@ public class UserRequestDTO {
         this.role = role;
     }
 
-    public Set<Long> getIdsCursos() {
+    public Set<Long> getIdsProducts() {
         return idsCursos;
     }
 

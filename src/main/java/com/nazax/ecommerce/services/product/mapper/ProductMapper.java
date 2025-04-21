@@ -31,7 +31,7 @@ public class ProductMapper {
         dto.setImageUrl(product.getImageUrl());
 
         Set<String> usernames = product.getUsers().stream()
-                .map(User::getUsername)
+                .map(User::getName)
                 .collect(Collectors.toSet());
 
         dto.setUsernames(usernames);

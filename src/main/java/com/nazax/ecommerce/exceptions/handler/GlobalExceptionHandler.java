@@ -1,6 +1,6 @@
 package com.nazax.ecommerce.exceptions.handler;
 
-import com.nazax.ecommerce.dtos.ErrorResponse;
+import com.nazax.ecommerce.exceptions.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
