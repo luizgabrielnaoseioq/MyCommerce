@@ -1,8 +1,10 @@
 package com.nazax.ecommerce.auth.service;
 
 import com.nazax.ecommerce.auth.dto.AuthenticationRequest;
+import com.nazax.ecommerce.auth.dto.AuthenticationResponse;
 import com.nazax.ecommerce.auth.dto.RegisterRequest;
 import com.nazax.ecommerce.auth.jwt.JwtUtil;
+import com.nazax.ecommerce.enums.Role;
 import com.nazax.ecommerce.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -18,29 +20,40 @@ public class AuthenticationService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
+    private final JwtService jwtService;
 
-    public String register(RegisterRequest request) {
-        var user = User.builder()
+    public AuthenticationResponse register(RegisterRequest request) {
+        User user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(request.getRole())
                 .build();
+
 
         userRepository.save(user);
 
-        return jwtUtil.generateToken(user);
+        String jwtToken = jwtService.generateToken(user);
+
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
     }
 
-    public String authenticate(AuthenticationRequest request) {
+
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
         var user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            throw new BadCredentialsException("Senha incorreta");
+            throw new BadCredentialsException("Senha inválida");
         }
 
-        return jwtUtil.generateToken(String.valueOf(user));
+        String jwtToken = jwtService.generateToken(user);
+
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
     }
+
 }
 
