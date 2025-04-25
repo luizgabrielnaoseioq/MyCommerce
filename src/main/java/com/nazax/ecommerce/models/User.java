@@ -22,39 +22,6 @@ public class User {
     private String email;
     private String password;
 
-    public static class Builder {
-        private String name;
-        private String email;
-        private String password;
-
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public Builder password(String password) {
-            this.password = password;
-            return this;
-        }
-
-        public User build() {
-            User user = new User();
-            user.setName(name);
-            user.setEmail(email);
-            user.setPassword(password);
-            return user;
-        }
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
-
     @Enumerated(EnumType.STRING)
     private Role role;
 
