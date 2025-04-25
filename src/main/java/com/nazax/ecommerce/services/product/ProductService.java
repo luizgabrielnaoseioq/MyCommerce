@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ProductService {
     ProductResponseDTO save(ProductRequestDTO dto);
+
     List<ProductResponseDTO> findAll();
 }
 

@@ -68,11 +68,11 @@ public class UserResponseDTO {
         return namesProducts;
     }
 
-    public Set<String> getNamesCursos() {
-        return namesProducts;
-    }
-
     public void setNamesProducts(Set<String> namesProducts) {
         this.namesProducts = namesProducts;
+    }
+
+    public Set<String> getNamesCursos() {
+        return namesProducts;
     }
 }

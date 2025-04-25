@@ -1,6 +1,7 @@
 package com.nazax.ecommerce.models;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Set;
 
