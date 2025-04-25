@@ -7,6 +7,7 @@ import com.nazax.ecommerce.auth.jwt.JwtUtil;
 import com.nazax.ecommerce.enums.Role;
 import com.nazax.ecommerce.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,8 +20,16 @@ public class AuthenticationService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtUtil jwtUtil;
-    private final JwtService jwtService;
+    private JwtService jwtService;
+
+    @Autowired
+    public AuthenticationService(UserRepository userRepository,
+                                 JwtService jwtService,
+                                 PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.jwtService = jwtService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public AuthenticationResponse register(RegisterRequest request) {
         User user = User.builder()
