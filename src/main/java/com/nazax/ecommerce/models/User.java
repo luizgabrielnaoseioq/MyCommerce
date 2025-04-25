@@ -58,4 +58,7 @@ public class User {
     public String getUsername() {
         return null;
     }
+
+    public void setProducts(Set<User> products) {
+    }
 }

@@ -18,14 +18,14 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private ProductRepository cursoRepository;
+    private ProductRepository productRepository;
 
     @Autowired
     private UserMapper userMapper;
 
     // Metodo para criar
     public UserResponseDTO create(UserRequestDTO dto) {
-        var products = cursoRepository.findByIdIn(dto.getIdsProducts());
+        var products = productRepository.findByIdIn(dto.getIdsProducts());
         var user = userMapper.toEntity(dto, products);
         var salvo = userRepository.save(user);
         return userMapper.toDTO(salvo);
