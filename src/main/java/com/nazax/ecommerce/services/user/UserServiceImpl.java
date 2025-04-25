@@ -23,27 +23,19 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public UserResponseDTO salvar(UserRequestDTO dto) {
+    // Metodo para criar
+    public UserResponseDTO create(UserRequestDTO dto) {
         var products = cursoRepository.findByIdIn(dto.getIdsProducts());
         var user = userMapper.toEntity(dto, products);
         var salvo = userRepository.save(user);
         return userMapper.toDTO(salvo);
     }
 
-    public List<UserResponseDTO> listar() {
+    // Metodo para buscar todos
+    public List<UserResponseDTO> findAll() {
         return userRepository.findAll().stream()
                 .map(userMapper::toDTO)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public UserResponseDTO create(UserRequestDTO dto) {
-        return null;
-    }
-
-    @Override
-    public List<UserResponseDTO> findAll() {
-        return List.of();
     }
 }
 

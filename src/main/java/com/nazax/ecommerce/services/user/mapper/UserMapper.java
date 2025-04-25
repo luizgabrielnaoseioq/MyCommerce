@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Component
 public class UserMapper {
 
-    public User toEntity(UserRequestDTO dto, Set<Product> products) {
+    public User toEntity(UserRequestDTO dto, Set<User> products) {
         User user = new User();
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
