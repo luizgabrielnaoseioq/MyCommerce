@@ -9,19 +9,19 @@ public class UserResponseDTO {
     private String email;
     private String password;
     private Role role;
-    private Set<String> nomesCursos;
+    private Set<String> namesProducts;
 
     public UserResponseDTO() {
 
     }
 
-    public UserResponseDTO(Long id, String nome, String email, String password, Role role, Set<String> nomesCursos) {
+    public UserResponseDTO(Long id, String nome, String email, String password, Role role, Set<String> namesProducts) {
         this.id = id;
         this.name = nome;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.nomesCursos = nomesCursos;
+        this.namesProducts = namesProducts;
     }
 
     public Long getId() {
@@ -64,11 +64,15 @@ public class UserResponseDTO {
         this.role = role;
     }
 
-    public Set<String> getNomesCursos() {
-        return nomesCursos;
+    public Set<String> getNamesProducts() {
+        return namesProducts;
     }
 
-    public void setNomesCursos(Set<String> nomesCursos) {
-        this.nomesCursos = nomesCursos;
+    public Set<String> getNamesCursos() {
+        return namesProducts;
+    }
+
+    public void setNamesProducts(Set<String> namesProducts) {
+        this.namesProducts = namesProducts;
     }
 }

@@ -12,13 +12,13 @@ import java.util.stream.Collectors;
 @Component
 public class UserMapper {
 
-    public User toEntity(UserRequestDTO dto, Set<User> cursos) {
+    public User toEntity(UserRequestDTO dto, Set<Product> products) {
         User user = new User();
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPassword(dto.getPassword());
         user.setRole(dto.getRole());
-        user.setCursos(cursos);
+        user.setProducts(products);
 
         return user;
     }
@@ -31,11 +31,11 @@ public class UserMapper {
         dto.setPassword(user.getPassword());
         dto.setRole(user.getRole());
 
-        Set<String> nomesCursos = user.getCursos().stream()
-                .map(Product::getNome)
+        Set<String> nomesCursos = user.getProducts().stream()
+                .map(Product::getName)
                 .collect(Collectors.toSet());
 
-        dto.setNomesCursos(nomesCursos);
+        dto.setNamesProducts(nomesCursos);
 
         return dto;
     }
